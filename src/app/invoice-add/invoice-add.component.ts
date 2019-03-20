@@ -80,7 +80,10 @@ export class InvoiceAddComponent implements OnInit {
   }
 
   isInvoiceValid(): boolean {
-    // console.log("aaaaa: " + JSON.stringify(this.invoice));
-    return !this.invoice.company_id || !this.invoice.date || !this.invoice.number || !this.invoice.positions || this.invoice.positions.length < 1;
+    return this.shouldHidePositions() || !this.invoice.positions || this.invoice.positions.length < 1;
+  }
+
+  shouldHidePositions(): boolean {
+    return !this.invoice.company_id || !this.invoice.date || !this.invoice.number;
   }
 }

@@ -46,6 +46,11 @@
     </div>
   </div>
   <div class="form-row">
+    <div *ngIf="shouldHidePositions()" class="alert alert-warning" role="alert">
+      Before adding positions please fill basic invoice data
+    </div>
+  </div>
+  <div *ngIf="!shouldHidePositions()" class="form-row">
     <div class="col">
       <label for="position-date">Position date</label>
       <div class="input-group" id="position-date">
