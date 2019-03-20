@@ -1,0 +1,19 @@
+<h2>Companies</h2>
+<h3>Add company</h3>
+<div>
+  <label>Company name:
+    <input #companyName />
+  </label>
+  <button (click)="add(companyName.value); companyName.value=''">
+    add
+  </button>
+</div>
+<h3>Companies list</h3>
+<ul class="heroes">
+  <li *ngFor="let company of companies">
+    <a routerLink="/company/{{company.id}}">
+      <span class="badge">{{company.id}}</span>{{company.name}}
+    </a>
+    <button class="delete" title="Delete company" (click)="delete(company)">x</button>
+  </li>
+</ul>

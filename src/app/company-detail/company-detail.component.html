@@ -1,0 +1,20 @@
+<button type="button" class="btn btn-light" (click)="goBack()">go back to list</button>
+<div *ngIf="company">
+  <div *ngIf="editable">
+    <h2>Company edition</h2>
+    <div><span>id: </span>{{company.id}}</div>
+    <div>
+      <label>name:
+        <input [(ngModel)]="company.name" placeholder="name"/>
+      </label>
+    </div>
+    <button type="button" class="btn btn-success" (click)="save()">save</button>
+    <button type="button" class="btn btn-danger" (click)="cancelEdition()">cancel</button>
+  </div>
+  <div *ngIf="!editable">
+    <h2>Company details</h2>
+    <button type="button" class="btn btn-light" (click)="startEdition()">Edit</button>
+    <h3>{{company.name}}</h3>
+  </div>
+  <app-vehicle></app-vehicle>
+</div>

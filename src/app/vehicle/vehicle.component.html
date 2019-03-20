@@ -1,0 +1,24 @@
+<app-vehicle-add></app-vehicle-add>
+<div class="container">
+  <h3>Vehicles list</h3>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Plate</th>
+      <th scope="col">Fuel</th>
+      <th scope="col">Name</th>
+      <th scope="col">Owner</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let vehicle of vehicles; index as i">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ vehicle.plate }}</td>
+      <td><span *ngFor="let fuel of vehicle.allowed_fuel_types" class="badge badge-secondary">{{fuel}}</span></td>
+      <td>{{ vehicle.name }}</td>
+      <td>{{ vehicle.owner_id }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

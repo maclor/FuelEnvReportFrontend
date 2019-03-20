@@ -1,0 +1,122 @@
+<h2>Add new invoice</h2>
+<div class="container">
+  <div class="form-row">
+    <div class="col">
+      <h3>Invoice details</h3>
+    </div>
+    <div class="col">
+      <button type="button" class="btn btn-primary" [disabled]="isInvoiceValid()">Save invoice</button>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col">
+      <label for="company">Company</label>
+      <select class="form-control" id="company" [(ngModel)]="invoice.company_id">
+        <option *ngFor="let company of companies" [ngValue]="company.id">{{company.name}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col">
+      <label for="invoice-date">Invoice date</label>
+      <div class="input-group" id="invoice-date">
+        <input class="form-control"
+               placeholder="Select date..."
+               name="dp"
+               [(ngModel)]="invoice.date"
+               ngbDatepicker #d1="ngbDatepicker"
+               [ngModelOptions]="{standalone: true}"
+               (dateSelect)="positionDate=invoice.date"
+        />
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary calendar" (click)="d1.toggle()" type="button"></button>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <label for="invoice-number">Invoice number</label>
+      <input class="form-control" [(ngModel)]="invoice.number" id="invoice-number"
+             [ngModelOptions]="{standalone: true}"/>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="col">
+      <h3>Invoice positions</h3>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col">
+      <label for="position-date">Position date</label>
+      <div class="input-group" id="position-date">
+        <input class="form-control" placeholder="Select date"
+               name="dp" [(ngModel)]="positionDate" ngbDatepicker #d2="ngbDatepicker">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary calendar" (click)="d2.toggle()" type="button"></button>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <ng-template #rt let-r="result" let-t="term">
+        <ngb-highlight [result]="r.plate" [term]="t" class="plate"></ngb-highlight>
+        <ngb-highlight [result]="r.name" [term]="t"></ngb-highlight>
+      </ng-template>
+      <label for="vehicle">Vehicle</label>
+      <input
+        id="vehicle"
+        type="text"
+        class="form-control"
+        [(ngModel)]="positionVehicle"
+        [ngModelOptions]="{standalone: true}"
+        [ngbTypeahead]="searchVehicle"
+        [resultTemplate]="rt"
+        [inputFormatter]="formatter"
+        (focus)="focus$.next($event.target.value)"
+        (click)="click$.next($event.target.value)"
+        #instance="ngbTypeahead"
+      />
+    </div>
+    <div class="col">
+      <label for="fuel-type">Fuel type</label>
+      <select class="form-control" id="fuel-type"
+              [disabled]="!positionVehicle"
+              [(ngModel)]="positionFuelType"
+              [ngModelOptions]="{standalone: true}">
+        <option *ngIf="positionVehicle && positionVehicle.allowed_fuel_types.length > 1">Choose something</option>
+        <option *ngFor="let fuel of positionVehicle.allowed_fuel_types">{{fuel}}</option>
+      </select>
+    </div>
+    <div class="col">
+      <label for="quantity">Quantity (liters)</label>
+      <input type="number" id="quantity" class="form-control" [(ngModel)]="positionQuantity"
+             [ngModelOptions]="{standalone: true}"/>
+    </div>
+    <div class="col">
+      <button type="button" class="btn btn-primary position-add"
+              (click)="addPosition()" [disabled]="isPositionValid()">Add position
+      </button>
+    </div>
+  </div>
+  <div *ngIf="invoice.positions && invoice.positions.length > 0" class="form-row">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">Position date</th>
+        <th scope="col">Vehicle plate</th>
+        <th scope="col">Vehicle name</th>
+        <th scope="col">Fuel type</th>
+        <th scope="col">Quantity (liters)</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let invoicePosition of invoice.positions">
+        <td>{{invoicePosition.date.day}}-{{invoicePosition.date.month}}-{{invoicePosition.date.year}}</td>
+        <td>{{getVehicle(invoicePosition.vehicle_id).plate}}</td>
+        <td>{{getVehicle(invoicePosition.vehicle_id).name}}</td>
+        <td><span class="badge badge-secondary">{{invoicePosition.fuel_type}}</span></td>
+        <td>{{invoicePosition.quantity | number}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
