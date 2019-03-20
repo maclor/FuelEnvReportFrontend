@@ -84,7 +84,7 @@
     <div class="col">
       <label for="fuel-type">Fuel type</label>
       <select class="form-control" id="fuel-type"
-              [disabled]="!positionVehicle"
+              [disabled]="!positionVehicle || (positionVehicle && positionVehicle.allowed_fuel_types.length === 1)"
               [(ngModel)]="positionFuelType"
               [ngModelOptions]="{standalone: true}">
         <option *ngIf="positionVehicle && positionVehicle.allowed_fuel_types.length > 1">Choose something</option>
