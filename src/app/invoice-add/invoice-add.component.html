@@ -5,7 +5,7 @@
       <h3>Invoice details</h3>
     </div>
     <div class="col">
-      <button type="button" class="btn btn-primary" [disabled]="isInvoiceValid()">Save invoice</button>
+      <button type="button" class="btn btn-primary float-right" [disabled]="isInvoiceValid()">Save invoice</button>
     </div>
   </div>
   <div class="form-row">
@@ -92,9 +92,8 @@
              [ngModelOptions]="{standalone: true}"/>
     </div>
     <div class="col">
-      <button type="button" class="btn btn-primary position-add"
-              (click)="addPosition()" [disabled]="isPositionValid()">Add position
-      </button>
+      <button type="button" class="btn btn-primary position-add float-right"
+              (click)="addPosition()" [disabled]="isPositionValid()">Add position</button>
     </div>
   </div>
   <div *ngIf="invoice.positions && invoice.positions.length > 0" class="form-row">
