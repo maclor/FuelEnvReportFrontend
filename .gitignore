@@ -33,6 +33,7 @@ speed-measure-plugin.json
 
 # IDE - IDEA
 .idea
+*.iml
 
 # misc
 /.sass-cache
