@@ -8,6 +8,7 @@ import {NgbDateStruct, NgbTypeahead} from "@ng-bootstrap/ng-bootstrap";
 import {debounceTime, distinctUntilChanged, filter, map} from 'rxjs/operators';
 import {InvoicePosition} from "../invoice-position";
 import {Invoice} from "../invoice";
+import {InvoiceService} from "../invoice.service";
 
 @Component({
   selector: 'app-invoice-add',
@@ -30,7 +31,7 @@ export class InvoiceAddComponent implements OnInit {
   focus$ = new Subject<string>();
   click$ = new Subject<string>();
 
-  constructor(private companyService: CompanyService, private vehicleService: VehicleService) {
+  constructor(private companyService: CompanyService, private vehicleService: VehicleService, private invoiceService: InvoiceService) {
   }
 
   ngOnInit() {
@@ -88,8 +89,19 @@ export class InvoiceAddComponent implements OnInit {
   }
 
   selectFuelTypeIfItsSingle(): void {
-    if(this.positionVehicle.allowed_fuel_types.length === 1) {
+    if (this.positionVehicle && this.positionVehicle.allowed_fuel_types.length === 1) {
       this.positionFuelType = this.positionVehicle.allowed_fuel_types[0];
     }
+  }
+
+  saveInvoice(): void {
+    this.invoiceService.addInvoice(this.invoice).subscribe(() => this.clearForm());
+  }
+
+  private clearForm(): void {
+    this.positionFuelType = null;
+    this.positionVehicle = null;
+    this.positionQuantity = null;
+    this.invoice.positions = [];
   }
 }

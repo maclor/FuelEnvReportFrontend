@@ -26,7 +26,7 @@ export class VehicleService {
   addVehicle(vehicle: Vehicle): Observable<Vehicle> {
     console.log(vehicle);
     return this.http.post<Vehicle>(this.vehiclesUrl, vehicle, httpOptions).pipe(
-      catchError(this.handleError<any>('addCompany'))
+      catchError(this.handleError<any>('addVehicle'))
     );
   }
 

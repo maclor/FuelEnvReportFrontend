@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {InMemoryDbService} from 'angular-in-memory-web-api';
 import {Company} from "./company";
 import {Vehicle} from "./Vehicle";
+import {Invoice} from "./invoice";
 
 @Injectable({
   providedIn: 'root'
@@ -22,15 +23,18 @@ export class InMemoryDataService implements InMemoryDbService {
       {id: 11, name: "Jeronimo Mantis"},
     ];
     let vehicle = [
-      {id: 1, owner_id: 1, name: "Renault Megane", plate: "DW577A", allowed_fuel_types: [ "ON" ]},
-      {id: 2, owner_id: 1, name: "Renault Koleos", plate: "DW5A564", allowed_fuel_types: [ "Pb" ]},
-      {id: 3, owner_id: 2, name: "VW Golf", plate: "DW3457", allowed_fuel_types: [ "LPG",  "Pb"]},
-      {id: 4, owner_id: 3, name: "MAN", plate: "WA432532", allowed_fuel_types: [ "ON" ]},
+      {id: 1, owner_id: 1, name: "Renault Megane", plate: "DW577A", allowed_fuel_types: ["ON"]},
+      {id: 2, owner_id: 1, name: "Renault Koleos", plate: "DW5A564", allowed_fuel_types: ["Pb"]},
+      {id: 3, owner_id: 2, name: "VW Golf", plate: "DW3457", allowed_fuel_types: ["LPG", "Pb"]},
+      {id: 4, owner_id: 3, name: "MAN", plate: "WA432532", allowed_fuel_types: ["ON"]},
     ];
-    return {'company': company, 'vehicle': vehicle};
+    let invoice = [
+
+    ];
+    return {'company': company, 'vehicle': vehicle, 'invoice': invoice};
   }
 
-  genId<T extends Company | Vehicle>(myTable: T[]): number {
+  genId<T extends Company | Vehicle | Invoice>(myTable: T[]): number {
     return myTable.length > 0 ? Math.max(...myTable.map(t => t.id)) + 1 : 1;
   }
 }

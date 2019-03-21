@@ -11,10 +11,10 @@ import {CompanyComponent} from './company/company.component';
 import {CompanyDetailComponent} from './company-detail/company-detail.component';
 import {AppRoutingModule} from './app-routing.module';
 import {DashboardComponent} from './dashboard/dashboard.component';
-import { VehicleComponent } from './vehicle/vehicle.component';
-import { VehicleAddComponent } from './vehicle-add/vehicle-add.component';
+import {VehicleComponent} from './vehicle/vehicle.component';
+import {VehicleAddComponent} from './vehicle-add/vehicle-add.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { InvoiceAddComponent } from './invoice-add/invoice-add.component';
+import {InvoiceAddComponent} from './invoice-add/invoice-add.component';
 
 @NgModule({
   imports: [
