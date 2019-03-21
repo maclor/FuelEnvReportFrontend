@@ -78,17 +78,18 @@
         [inputFormatter]="formatter"
         (focus)="focus$.next($event.target.value)"
         (click)="click$.next($event.target.value)"
+        (ngModelChange)="selectFuelTypeIfItsSingle()"
         #instance="ngbTypeahead"
       />
     </div>
     <div class="col">
       <label for="fuel-type">Fuel type</label>
       <select class="form-control" id="fuel-type"
-              [disabled]="!positionVehicle || (positionVehicle && positionVehicle.allowed_fuel_types.length === 1)"
+              [disabled]="!positionVehicle || positionVehicle?.allowed_fuel_types?.length === 1"
               [(ngModel)]="positionFuelType"
               [ngModelOptions]="{standalone: true}">
-        <option *ngIf="positionVehicle && positionVehicle.allowed_fuel_types.length > 1">Choose something</option>
-        <option *ngFor="let fuel of positionVehicle.allowed_fuel_types">{{fuel}}</option>
+        <option *ngIf="positionVehicle?.allowed_fuel_types?.length > 1">Choose something</option>
+        <option *ngFor="let fuel of positionVehicle?.allowed_fuel_types">{{fuel}}</option>
       </select>
     </div>
     <div class="col">

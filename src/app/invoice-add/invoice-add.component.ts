@@ -86,4 +86,10 @@ export class InvoiceAddComponent implements OnInit {
   shouldHidePositions(): boolean {
     return !this.invoice.company_id || !this.invoice.date || !this.invoice.number;
   }
+
+  selectFuelTypeIfItsSingle(): void {
+    if(this.positionVehicle.allowed_fuel_types.length === 1) {
+      this.positionFuelType = this.positionVehicle.allowed_fuel_types[0];
+    }
+  }
 }
