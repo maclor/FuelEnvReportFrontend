@@ -23,10 +23,10 @@ export class InMemoryDataService implements InMemoryDbService {
       {id: 11, name: "Jeronimo Mantis"},
     ];
     let vehicle = [
-      {id: 1, owner_id: 1, name: "Renault Megane", plate: "DW577A", allowed_fuel_types: ["ON"]},
-      {id: 2, owner_id: 1, name: "Renault Koleos", plate: "DW5A564", allowed_fuel_types: ["Pb"]},
-      {id: 3, owner_id: 2, name: "VW Golf", plate: "DW3457", allowed_fuel_types: ["LPG", "Pb"]},
-      {id: 4, owner_id: 3, name: "MAN", plate: "WA432532", allowed_fuel_types: ["ON"]},
+      {id: 1, owner_id: 1, name: "Renault Megane", plate: "DW577A", allowed_fuel_types: ["ON"], allowed_overall_weight: 1700, type: "car", registration_date: {day: 11, month: 11, year: 2011}},
+      {id: 2, owner_id: 1, name: "Renault Koleos", plate: "DW5A564", allowed_fuel_types: ["Pb"], allowed_overall_weight : 1450, type: "car", registration_date: {day: 11, month: 11, year: 2011}},
+      {id: 3, owner_id: 2, name: "VW Golf", plate: "DW3457", allowed_fuel_types: ["LPG", "Pb"], allowed_overall_weight: 2050, type: "car", registration_date: {day: 11, month: 11, year: 2011}},
+      {id: 4, owner_id: 3, name: "MAN", plate: "WA432532", allowed_fuel_types: ["ON"], allowed_overall_weight: 1560, type: "car", registration_date: {day: 11, month: 11, year: 2011}},
     ];
     let invoice = [
 

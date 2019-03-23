@@ -16,7 +16,10 @@ export class VehicleAddComponent {
     name: new FormControl(''),
     plate: new FormControl(''),
     owner_id: new FormControl(''),
-    allowed_fuel_types: new FormControl('')
+    allowed_fuel_types: new FormControl(''),
+    allowed_overall_weight: new FormControl(''),
+    registration_date: new FormControl(''),
+    type: new FormControl('')
   });
 
   constructor(private vehicleService: VehicleService) {
