@@ -19,7 +19,6 @@ export class InvoiceService {
   }
 
   addInvoice(invoice: Invoice): Observable<Invoice> {
-    console.log(invoice);
     return this.http.post<Invoice>(this.invoiceUrl, invoice, httpOptions).pipe(
       catchError(this.handleError<any>('addInvoice'))
     );
