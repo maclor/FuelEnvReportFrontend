@@ -18,7 +18,7 @@ export class ReportComponent implements OnInit {
   company: Company;
   vehicles: Vehicle[];
   invoices: Invoice[];
-
+  isDataGenerated: boolean = false;
   invoicePositions: InvoicePosition[] = [];
 
   constructor(private route: ActivatedRoute,
@@ -49,5 +49,6 @@ export class ReportComponent implements OnInit {
 
   generateReport() {
     this.invoices.forEach(invoice => this.invoicePositions = this.invoicePositions.concat(invoice.positions));
+    this.isDataGenerated = true;
   }
 }

@@ -3,7 +3,7 @@
     <button class="btn btn-primary float-right" (click)="generateReport()">Generate</button>
   </h2>
 </div>
-<div class="container">
+<div class="container" *ngIf="isDataGenerated">
   <h3>Summary report</h3>
   <table class="table table-striped">
     <thead>
@@ -41,7 +41,7 @@
     </tbody>
   </table>
 </div>
-<div class="container">
+<div class="container" *ngIf="isDataGenerated">
   <h3>Vehicles reports</h3>
   <app-report-vehicle *ngFor="let vehicle of vehicles" [vehicle]="vehicle"></app-report-vehicle>
 </div>
