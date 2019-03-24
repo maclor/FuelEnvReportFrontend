@@ -1,7 +1,6 @@
-<button type="button" class="btn btn-light" (click)="goBack()">go back to list</button>
 <div *ngIf="company" class="container">
   <div *ngIf="editable">
-    <h2>Company edition</h2>
+    <h2>Company edition - {{company.name}}</h2>
     <div><span>id: </span>{{company.id}}</div>
     <div>
       <label>name:
@@ -12,10 +11,14 @@
     <button type="button" class="btn btn-danger" (click)="cancelEdition()">cancel</button>
   </div>
   <div *ngIf="!editable">
-    <h2>Company details</h2>
+    <h2>Company details - {{company.name}}</h2>
     <button type="button" class="btn btn-light" (click)="startEdition()">Edit</button>
-    <h3>{{company.name}}</h3>
   </div>
   <app-vehicle [vehicles]="vehicles"></app-vehicle>
   <app-invoices [invoices]="invoices"></app-invoices>
+  <div class="container">
+    <a href="/invoice/add?companyId={{company.id}}">
+      <button type="button" class="btn btn-outline-primary">Add invoice</button>
+    </a>
+  </div>
 </div>

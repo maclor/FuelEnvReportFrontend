@@ -41,14 +41,14 @@ export class CompanyDetailComponent implements OnInit {
       })
   }
 
-  goBack(): void {
+  private goBack(): void {
     this.location.back();
   }
 
   save(): void {
     this.editable = false;
     this.companyService.updateCompany(this.company)
-      .subscribe(() => this.goBack);
+      .subscribe(() => this.goBack());
   }
 
   startEdition(): void {

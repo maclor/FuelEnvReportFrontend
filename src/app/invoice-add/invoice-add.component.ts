@@ -9,6 +9,7 @@ import {debounceTime, distinctUntilChanged, filter, map} from 'rxjs/operators';
 import {InvoicePosition} from "../invoice-position";
 import {Invoice} from "../invoice";
 import {InvoiceService} from "../invoice.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-invoice-add',
@@ -31,12 +32,17 @@ export class InvoiceAddComponent implements OnInit {
   focus$ = new Subject<string>();
   click$ = new Subject<string>();
 
-  constructor(private companyService: CompanyService, private vehicleService: VehicleService, private invoiceService: InvoiceService) {
+  constructor(private companyService: CompanyService,
+              private vehicleService: VehicleService,
+              private invoiceService: InvoiceService,
+              private route: ActivatedRoute) {
   }
 
   ngOnInit() {
+    const companyId = +this.route.snapshot.queryParamMap.get('companyId');
+    this.invoice.company_id = companyId;
     this.getCompanies();
-    this.getVehicles()
+    this.getVehicles();
   }
 
   private getCompanies(): void {
