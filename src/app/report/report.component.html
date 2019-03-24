@@ -1,0 +1,43 @@
+<div class="container">
+  <h2>Report {{company?.name}}
+    <button class="btn btn-primary float-right" (click)="generateReport()">Generate</button>
+  </h2>
+</div>
+<div class="container">
+  <h3></h3>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Vehicle</th>
+      <th scope="col">Plate</th>
+      <th scope="col">Fuel type</th>
+      <th scope="col">Type</th>
+      <th scope="col">I</th>
+      <th scope="col">II</th>
+      <th scope="col">III</th>
+      <th scope="col">IV</th>
+      <th scope="col">V</th>
+      <th scope="col">VI</th>
+      <th scope="col">VII</th>
+      <th scope="col">VIII</th>
+      <th scope="col">IX</th>
+      <th scope="col">X</th>
+      <th scope="col">XI</th>
+      <th scope="col">XII</th>
+      <th scope="col">&sum;</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!--<tr *ngFor="let vehicle of vehicles; index as i">-->
+    <!--<th scope="row">{{ i + 1 }}</th>-->
+    <!--<td>{{ vehicle.plate }}</td>-->
+    <!--<td><span *ngFor="let fuel of vehicle.allowed_fuel_types" class="badge badge-secondary">{{fuel}}</span></td>-->
+    <!--<td>{{ vehicle.name }}</td>-->
+    <!--<td>{{ vehicle.type }}</td>-->
+    <!--<td><app-date-formatter [date]="vehicle.registration_date"></app-date-formatter></td>-->
+    <!--<td>{{ vehicle.allowed_overall_weight }}</td>-->
+    <!--</tr>-->
+    </tbody>
+  </table>
+</div>
