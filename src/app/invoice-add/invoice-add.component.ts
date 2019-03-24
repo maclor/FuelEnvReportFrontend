@@ -42,15 +42,11 @@ export class InvoiceAddComponent implements OnInit {
     const companyId = +this.route.snapshot.queryParamMap.get('companyId');
     this.invoice.company_id = companyId;
     this.getCompanies();
-    this.getVehicles();
+    this.updateVehicles();
   }
 
   private getCompanies(): void {
     this.companyService.getCompanies().subscribe(companies => this.companies = companies);
-  }
-
-  private getVehicles(): void {
-    this.vehicleService.getVehicles().subscribe(vehicles => this.vehicles = vehicles);
   }
 
   searchVehicle = (text$: Observable<string>) => {
@@ -109,5 +105,10 @@ export class InvoiceAddComponent implements OnInit {
     this.positionVehicle = null;
     this.positionQuantity = null;
     this.invoice.positions = [];
+  }
+
+  updateVehicles(): void {
+    this.vehicleService.getVehiclesByCompanyId(this.invoice.company_id)
+      .subscribe(vehicles => this.vehicles = vehicles);
   }
 }

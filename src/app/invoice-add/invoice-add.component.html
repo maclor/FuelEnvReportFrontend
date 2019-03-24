@@ -13,7 +13,7 @@
   <div class="form-row">
     <div class="col">
       <label for="company">Company</label>
-      <select class="form-control" id="company" [(ngModel)]="invoice.company_id">
+      <select class="form-control" id="company" [(ngModel)]="invoice.company_id" (change)="updateVehicles()">
         <option *ngFor="let company of companies" [ngValue]="company.id">{{company.name}}</option>
       </select>
     </div>
