@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Company} from "../company";
 import {CompanyService} from "../company.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-company',
@@ -11,7 +12,8 @@ export class CompanyComponent implements OnInit {
 
   companies: Company[];
 
-  constructor(private companyService: CompanyService) {
+  constructor(private companyService: CompanyService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -31,5 +33,9 @@ export class CompanyComponent implements OnInit {
   delete(company: Company): void {
     this.companies = this.companies.filter(c => c !== company);
     this.companyService.delete(company);
+  }
+
+  openCompany(id: number): void {
+    this.router.navigateByUrl("/company/" + id);
   }
 }

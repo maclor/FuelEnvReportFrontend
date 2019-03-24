@@ -27,8 +27,8 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let company of companies">
-        <td><a routerLink="/company/{{company.id}}">{{company.name}}</a></td>
+      <tr *ngFor="let company of companies" (click)="openCompany(company.id)" style="cursor: hand;cursor: pointer;">
+        <td>{{company.name}}</td>
         <td>
           <button class="btn btn-primary" (click)="delete(company)">Delete</button>
         </td>
