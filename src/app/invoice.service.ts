@@ -33,7 +33,7 @@ export class InvoiceService {
 
   getInvoicesForCompany(companyId: number) {
     const url = `${this.invoiceUrl}`;
-    return this.http.get<Invoice[]>(url).pipe(
+    return this.http.get<Invoice[]>(url + '?company_id=' + companyId).pipe(
       catchError(this.handleError<Invoice[]>(`getInvoices cof companyId=${companyId}`))
     );
   }

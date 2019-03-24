@@ -8,4 +8,8 @@ import {Vehicle} from '../Vehicle';
 })
 export class VehicleComponent {
   @Input() vehicles: Vehicle[];
+
+  areVehicles(): boolean {
+    return this.vehicles && this.vehicles.length > 0;
+  }
 }

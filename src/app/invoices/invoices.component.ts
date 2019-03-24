@@ -9,4 +9,8 @@ import {Invoice} from "../invoice";
 export class InvoicesComponent {
 
   @Input() invoices: Invoice[];
+
+  areInvoices(): boolean {
+    return this.invoices && this.invoices.length > 0;
+  }
 }
