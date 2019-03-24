@@ -51,4 +51,8 @@ export class ReportComponent implements OnInit {
     this.invoices.forEach(invoice => this.invoicePositions = this.invoicePositions.concat(invoice.positions));
     this.isDataGenerated = true;
   }
+
+  getPositions(vehicle_id: number): InvoicePosition[] {
+    return this.invoicePositions.filter(position => position.vehicle_id === vehicle_id);
+  }
 }

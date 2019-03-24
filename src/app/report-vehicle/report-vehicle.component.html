@@ -1,1 +1,29 @@
 <app-vehicle-details [vehicle]="vehicle"></app-vehicle-details>
+<div class="container">
+  <h4>Monthly reports</h4>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Invoice number</th>
+      <th scope="col">Invoice date</th>
+      <th scope="col">Fuel type</th>
+      <th scope="col">Fuel quantity</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let position of invoicePositions; index as i">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>TODO</td>
+      <td>TODO</td>
+      <td>{{position.fuel_type}}</td>
+      <td>{{position.quantity}}</td>
+    </tr>
+    <tr>
+      <td colspan="3"></td>
+      <th scope="row">Sum:</th>
+      <td><strong>{{getSumOfFuel()}}</strong></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

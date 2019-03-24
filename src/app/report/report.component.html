@@ -43,5 +43,5 @@
 </div>
 <div class="container" *ngIf="isDataGenerated">
   <h3>Vehicles reports</h3>
-  <app-report-vehicle *ngFor="let vehicle of vehicles" [vehicle]="vehicle"></app-report-vehicle>
+  <app-report-vehicle *ngFor="let vehicle of vehicles" [vehicle]="vehicle" [invoicePositions]="getPositions(vehicle.id)"></app-report-vehicle>
 </div>
