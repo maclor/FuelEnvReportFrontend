@@ -1,18 +1,23 @@
 <div *ngIf="company" class="container">
-  <div *ngIf="editable">
-    <h2>Company edition - {{company.name}}</h2>
-    <div><span>id: </span>{{company.id}}</div>
-    <div>
-      <label>name:
-        <input [(ngModel)]="company.name" placeholder="name"/>
-      </label>
+  <div class="container" *ngIf="editable">
+    <h2>Company edition - {{company.name}}
+      <button type="button" class="btn btn-light" (click)="cancelEdition()">Cancel edition</button>
+    </h2>
+    <div class="container">
+      <div class="form-row">
+        <div class="col">
+          <input class="form-control" [(ngModel)]="company.name" placeholder="name" id="company-name"/>
+        </div>
+        <div class="col">
+          <button type="button" class="btn btn-primary float-left" (click)="save()">Save</button>
+        </div>
+      </div>
     </div>
-    <button type="button" class="btn btn-success" (click)="save()">save</button>
-    <button type="button" class="btn btn-danger" (click)="cancelEdition()">cancel</button>
   </div>
-  <div *ngIf="!editable">
-    <h2>Company details - {{company.name}}</h2>
-    <button type="button" class="btn btn-light" (click)="startEdition()">Edit</button>
+  <div class="container" *ngIf="!editable">
+    <h2>Company details - {{company.name}}
+      <button type="button" class="btn btn-light" (click)="startEdition()">Edit</button>
+    </h2>
   </div>
   <app-vehicle [vehicles]="vehicles"></app-vehicle>
   <div class="container">
