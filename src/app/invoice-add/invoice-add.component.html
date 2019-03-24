@@ -48,11 +48,11 @@
     </div>
   </div>
   <div class="form-row" *ngIf="shouldHidePositions()">
-    <div class="alert alert-warning" role="alert" *ngIf="areVehiclesAvailableForCompany()">
+    <div class="alert alert-warning" role="alert" *ngIf="!invoice.company_id">
       Before adding positions please fill basic invoice data
     </div>
-    <div class="alert alert-danger" role="alert" *ngIf="!areVehiclesAvailableForCompany()">
-      There are no vehicles defined for this company!
+    <div class="alert alert-danger" role="alert" *ngIf="invoice.company_id && !areVehiclesAvailableForCompany()">
+      There are no vehicles defined for this company! <a href="/vehicle/add?companyId={{invoice.company_id}}"><button type="button" class="btn btn-danger">Add one</button></a>
     </div>
   </div>
   <div *ngIf="!shouldHidePositions()" class="form-row">
