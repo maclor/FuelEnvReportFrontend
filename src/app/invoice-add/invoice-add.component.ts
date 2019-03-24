@@ -90,6 +90,10 @@ export class InvoiceAddComponent implements OnInit {
     return !this.invoice.company_id || !this.invoice.date || !this.invoice.number;
   }
 
+  areVehiclesAvailableForCompany(): boolean {
+    return this.invoice.company_id && this.vehicles && this.vehicles.length > 0;
+  }
+
   selectFuelTypeIfItsSingle(): void {
     if (this.positionVehicle && this.positionVehicle.allowed_fuel_types.length === 1) {
       this.positionFuelType = this.positionVehicle.allowed_fuel_types[0];

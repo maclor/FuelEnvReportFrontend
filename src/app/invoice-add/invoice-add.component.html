@@ -47,9 +47,12 @@
       <h3>Invoice positions</h3>
     </div>
   </div>
-  <div class="form-row">
-    <div *ngIf="shouldHidePositions()" class="alert alert-warning" role="alert">
+  <div class="form-row" *ngIf="shouldHidePositions()">
+    <div class="alert alert-warning" role="alert" *ngIf="areVehiclesAvailableForCompany()">
       Before adding positions please fill basic invoice data
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="!areVehiclesAvailableForCompany()">
+      There are no vehicles defined for this company!
     </div>
   </div>
   <div *ngIf="!shouldHidePositions()" class="form-row">
