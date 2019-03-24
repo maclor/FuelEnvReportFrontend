@@ -1,5 +1,5 @@
 <button type="button" class="btn btn-light" (click)="goBack()">go back to list</button>
-<div *ngIf="company">
+<div *ngIf="company" class="container">
   <div *ngIf="editable">
     <h2>Company edition</h2>
     <div><span>id: </span>{{company.id}}</div>
@@ -17,4 +17,5 @@
     <h3>{{company.name}}</h3>
   </div>
   <app-vehicle></app-vehicle>
+  <app-invoices [invoices]="invoices"></app-invoices>
 </div>

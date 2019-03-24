@@ -30,4 +30,11 @@ export class InvoiceService {
       return of(result as T);
     };
   }
+
+  getInvoicesForCompany(companyId: number) {
+    const url = `${this.invoiceUrl}`;
+    return this.http.get<Invoice[]>(url).pipe(
+      catchError(this.handleError<Invoice[]>(`getInvoices cof companyId=${companyId}`))
+    );
+  }
 }

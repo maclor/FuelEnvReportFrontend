@@ -15,6 +15,7 @@ import {VehicleComponent} from './vehicle/vehicle.component';
 import {VehicleAddComponent} from './vehicle-add/vehicle-add.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {InvoiceAddComponent} from './invoice-add/invoice-add.component';
+import { InvoicesComponent } from './invoices/invoices.component';
 
 @NgModule({
   imports: [
@@ -34,6 +35,7 @@ import {InvoiceAddComponent} from './invoice-add/invoice-add.component';
     VehicleComponent,
     VehicleAddComponent,
     InvoiceAddComponent,
+    InvoicesComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
