@@ -1,71 +1,60 @@
 <div class="container">
-  <p>
-    <button type="button" class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed"
-            [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
-      Add vehicle
-    </button>
-  </p>
-  <div [ngbCollapse]="isCollapsed" id="collapseExample">
-    <div class="card card-body">
-      <h3>Add new vehicle</h3>
-      <form [formGroup]="vehicleForm" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-          <label>Owner</label>
-          <select class="form-control" formControlName="owner_id">
-            <option *ngFor="let company of companies" [ngValue]="company.id">{{company.name}}</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label>Plate</label>
-          <input type="text" class="form-control" formControlName="plate">
-        </div>
-
-        <div class="form-group">
-          <label>Name</label>
-          <input type="text" class="form-control" formControlName="name">
-        </div>
-
-        <div class="form-group">
-          <label>Fuel types</label>
-          <select multiple class="form-control" formControlName="allowed_fuel_types">
-            <option>ON</option>
-            <option>Pb</option>
-            <option>LPG</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label>Allowed overall weight</label>
-          <input type="number" class="form-control" formControlName="allowed_overall_weight">
-        </div>
-
-        <div class="form-group">
-          <label>Type</label>
-          <select class="form-control" formControlName="type">
-            <option>car</option>
-            <option>truck</option>
-            <option>bus</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="registration-date">Registration date</label>
-          <div class="input-group" id="registration-date">
-            <input class="form-control"
-                   placeholder="Select date..."
-                   name="dp"
-                   formControlName="registration_date"
-                   ngbDatepicker #d1="ngbDatepicker"
-            />
-            <div class="input-group-append">
-              <button class="btn btn-outline-secondary calendar" (click)="d1.toggle()" type="button"></button>
-            </div>
-          </div>
-        </div>
-
-        <button type="submit" class="btn btn-success">Submit</button>
-      </form>
+  <h3>Add new vehicle</h3>
+  <form [formGroup]="vehicleForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>Owner</label>
+      <select class="form-control" formControlName="owner_id">
+        <option *ngFor="let company of companies" [ngValue]="company.id">{{company.name}}</option>
+      </select>
     </div>
-  </div>
+
+    <div class="form-group">
+      <label>Plate</label>
+      <input type="text" class="form-control" formControlName="plate">
+    </div>
+
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" class="form-control" formControlName="name">
+    </div>
+
+    <div class="form-group">
+      <label>Fuel types</label>
+      <select multiple class="form-control" formControlName="allowed_fuel_types">
+        <option>ON</option>
+        <option>Pb</option>
+        <option>LPG</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Allowed overall weight</label>
+      <input type="number" class="form-control" formControlName="allowed_overall_weight">
+    </div>
+
+    <div class="form-group">
+      <label>Type</label>
+      <select class="form-control" formControlName="type">
+        <option>car</option>
+        <option>truck</option>
+        <option>bus</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="registration-date">Registration date</label>
+      <div class="input-group" id="registration-date">
+        <input class="form-control"
+               placeholder="Select date..."
+               name="dp"
+               formControlName="registration_date"
+               ngbDatepicker #d1="ngbDatepicker"
+        />
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary calendar" (click)="d1.toggle()" type="button"></button>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
 </div>

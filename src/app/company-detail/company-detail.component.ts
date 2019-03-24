@@ -19,6 +19,7 @@ export class CompanyDetailComponent implements OnInit {
   editable: boolean = false;
   invoices: Invoice[];
   vehicles: Vehicle[];
+  isCollapsed: boolean = true;
 
   constructor(private route: ActivatedRoute,
               private companyService: CompanyService,

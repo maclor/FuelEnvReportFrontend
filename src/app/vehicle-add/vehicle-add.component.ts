@@ -12,7 +12,6 @@ import {Company} from "../company";
 })
 export class VehicleAddComponent {
 
-  public isCollapsed = true;
   public companies: Company[];
 
   vehicleForm = new FormGroup({
@@ -25,7 +24,8 @@ export class VehicleAddComponent {
     type: new FormControl('')
   });
 
-  constructor(private vehicleService: VehicleService, private companyService: CompanyService) {
+  constructor(private vehicleService: VehicleService,
+              private companyService: CompanyService) {
   }
 
   ngOnInit(): void {
@@ -35,7 +35,6 @@ export class VehicleAddComponent {
   onSubmit(): void {
     let vehicle = new Vehicle();
     vehicle = this.vehicleForm.value;
-    this.isCollapsed = true;
     this.vehicleService.addVehicle(vehicle).subscribe();
   }
 

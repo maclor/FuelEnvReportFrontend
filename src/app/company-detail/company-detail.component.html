@@ -15,6 +15,18 @@
     <button type="button" class="btn btn-light" (click)="startEdition()">Edit</button>
   </div>
   <app-vehicle [vehicles]="vehicles"></app-vehicle>
+  <div class="container">
+    <p>
+      <button type="button" class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed"
+              [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">Add vehicle
+      </button>
+    </p>
+    <div [ngbCollapse]="isCollapsed" id="collapseExample">
+      <div class="card card-body">
+        <app-vehicle-add></app-vehicle-add>
+      </div>
+    </div>
+  </div>
   <app-invoices [invoices]="invoices"></app-invoices>
   <div class="container">
     <a href="/invoice/add?companyId={{company.id}}">
