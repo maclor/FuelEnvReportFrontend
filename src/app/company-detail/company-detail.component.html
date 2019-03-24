@@ -16,6 +16,6 @@
     <button type="button" class="btn btn-light" (click)="startEdition()">Edit</button>
     <h3>{{company.name}}</h3>
   </div>
-  <app-vehicle></app-vehicle>
+  <app-vehicle [vehicles]="vehicles"></app-vehicle>
   <app-invoices [invoices]="invoices"></app-invoices>
 </div>

@@ -6,6 +6,8 @@ import {Company} from "../company";
 import {CompanyService} from "../company.service";
 import {InvoiceService} from "../invoice.service";
 import {Invoice} from "../invoice";
+import {VehicleService} from "../vehicle.service";
+import {Vehicle} from "../vehicle";
 
 @Component({
   selector: 'app-company-detail',
@@ -16,11 +18,13 @@ export class CompanyDetailComponent implements OnInit {
   @Input() company: Company;
   editable: boolean = false;
   invoices: Invoice[];
+  vehicles: Vehicle[];
 
   constructor(private route: ActivatedRoute,
               private companyService: CompanyService,
               private location: Location,
-              private invoiceService: InvoiceService) {
+              private invoiceService: InvoiceService,
+              private vehicleService: VehicleService) {
   }
 
   ngOnInit() {
@@ -30,7 +34,11 @@ export class CompanyDetailComponent implements OnInit {
   getCompanyData(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.companyService.getCompany(id)
-      .subscribe(company => {this.company = company; this.getInvoices();})
+      .subscribe(company => {
+        this.company = company;
+        this.getInvoices();
+        this.getVehicles();
+      })
   }
 
   goBack(): void {
@@ -51,8 +59,13 @@ export class CompanyDetailComponent implements OnInit {
     this.editable = false;
   }
 
-  getInvoices(): void {
+  private getInvoices(): void {
     this.invoiceService.getInvoicesForCompany(this.company.id)
       .subscribe(invoices => this.invoices = invoices);
+  }
+
+  private getVehicles(): void {
+    this.vehicleService.getVehicles()
+      .subscribe(vehicles => this.vehicles = vehicles);
   }
 }

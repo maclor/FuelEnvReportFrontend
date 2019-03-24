@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Invoice} from "../invoice";
 
 @Component({
@@ -6,14 +6,7 @@ import {Invoice} from "../invoice";
   templateUrl: './invoices.component.html',
   styleUrls: ['./invoices.component.css']
 })
-export class InvoicesComponent implements OnInit {
+export class InvoicesComponent {
 
   @Input() invoices: Invoice[];
-
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
-
 }
