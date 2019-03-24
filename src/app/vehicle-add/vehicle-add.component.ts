@@ -35,6 +35,7 @@ export class VehicleAddComponent {
   onSubmit(): void {
     let vehicle = new Vehicle();
     vehicle = this.vehicleForm.value;
+    this.isCollapsed = true;
     this.vehicleService.addVehicle(vehicle).subscribe();
   }
 
