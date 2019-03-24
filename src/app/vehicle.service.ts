@@ -23,6 +23,12 @@ export class VehicleService {
     );
   }
 
+  getVehiclesByCompanyId(companyId: number): Observable<Vehicle[]> {
+    return this.http.get<Vehicle[]>(this.vehiclesUrl + '?owner_id=' + companyId).pipe(
+      catchError(this.handleError('getVehiclesByCompanyId', []))
+    );
+  }
+
   addVehicle(vehicle: Vehicle): Observable<Vehicle> {
     return this.http.post<Vehicle>(this.vehiclesUrl, vehicle, httpOptions).pipe(
       catchError(this.handleError<any>('addVehicle'))

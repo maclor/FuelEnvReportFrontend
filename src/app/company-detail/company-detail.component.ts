@@ -65,7 +65,7 @@ export class CompanyDetailComponent implements OnInit {
   }
 
   private getVehicles(): void {
-    this.vehicleService.getVehicles()
+    this.vehicleService.getVehiclesByCompanyId(this.company.id)
       .subscribe(vehicles => this.vehicles = vehicles);
   }
 }
