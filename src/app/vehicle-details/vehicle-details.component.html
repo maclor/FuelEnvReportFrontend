@@ -1,0 +1,34 @@
+<div class="container">
+  <h4>{{vehicle.plate}} {{vehicle.name}}</h4>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col" colspan="2">Vehicle details data</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <th scope="row">Brand</th>
+      <td>{{vehicle.name}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Plate</th>
+      <td>{{vehicle.plate}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Register date</th>
+      <td>
+        <app-date-formatter [date]="vehicle.registration_date"></app-date-formatter>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Allowed overall weight</th>
+      <td>{{vehicle.allowed_overall_weight}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Type</th>
+      <td>{{vehicle.type}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

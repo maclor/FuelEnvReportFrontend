@@ -4,7 +4,7 @@
   </h2>
 </div>
 <div class="container">
-  <h3></h3>
+  <h3>Summary report</h3>
   <table class="table table-striped">
     <thead>
     <tr>
@@ -40,4 +40,8 @@
     <!--</tr>-->
     </tbody>
   </table>
+</div>
+<div class="container">
+  <h3>Vehicles reports</h3>
+  <app-report-vehicle *ngFor="let vehicle of vehicles" [vehicle]="vehicle"></app-report-vehicle>
 </div>

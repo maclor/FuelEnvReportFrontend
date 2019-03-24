@@ -16,6 +16,8 @@ import {InvoiceAddComponent} from './invoice-add/invoice-add.component';
 import {InvoicesComponent} from './invoices/invoices.component';
 import {DateFormatterComponent} from './date-formatter/date-formatter.component';
 import { ReportComponent } from './report/report.component';
+import { ReportVehicleComponent } from './report-vehicle/report-vehicle.component';
+import { VehicleDetailsComponent } from './vehicle-details/vehicle-details.component';
 
 @NgModule({
   imports: [
@@ -37,6 +39,8 @@ import { ReportComponent } from './report/report.component';
     InvoicesComponent,
     DateFormatterComponent,
     ReportComponent,
+    ReportVehicleComponent,
+    VehicleDetailsComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
