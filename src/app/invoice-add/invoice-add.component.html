@@ -5,7 +5,9 @@
       <h3>Invoice details</h3>
     </div>
     <div class="col">
-      <button type="button" class="btn btn-primary float-right" [disabled]="isInvoiceValid()" (click)="saveInvoice()">Save invoice</button>
+      <button type="button" class="btn btn-primary float-right" [disabled]="isInvoiceValid()" (click)="saveInvoice()">
+        Save invoice
+      </button>
     </div>
   </div>
   <div class="form-row">
@@ -99,7 +101,8 @@
     </div>
     <div class="col">
       <button type="button" class="btn btn-primary position-add float-right"
-              (click)="addPosition()" [disabled]="isPositionValid()">Add position</button>
+              (click)="addPosition()" [disabled]="isPositionValid()">Add position
+      </button>
     </div>
   </div>
   <div *ngIf="invoice.positions && invoice.positions.length > 0" class="form-row">
@@ -115,7 +118,9 @@
       </thead>
       <tbody>
       <tr *ngFor="let invoicePosition of invoice.positions">
-        <td>{{invoicePosition.date.day}}-{{invoicePosition.date.month}}-{{invoicePosition.date.year}}</td>
+        <td>
+          <app-date-formatter [date]="invoicePosition.date"></app-date-formatter>
+        </td>
         <td>{{getVehicle(invoicePosition.vehicle_id).plate}}</td>
         <td>{{getVehicle(invoicePosition.vehicle_id).name}}</td>
         <td><span class="badge badge-secondary">{{invoicePosition.fuel_type}}</span></td>

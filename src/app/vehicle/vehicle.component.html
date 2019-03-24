@@ -19,7 +19,7 @@
       <td><span *ngFor="let fuel of vehicle.allowed_fuel_types" class="badge badge-secondary">{{fuel}}</span></td>
       <td>{{ vehicle.name }}</td>
       <td>{{ vehicle.type }}</td>
-      <td>{{ vehicle.registration_date.day }}-{{ vehicle.registration_date.month }}-{{ vehicle.registration_date.year }}</td>
+      <td><app-date-formatter [date]="vehicle.registration_date"></app-date-formatter></td>
       <td>{{ vehicle.allowed_overall_weight }}</td>
     </tr>
     </tbody>

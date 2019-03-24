@@ -14,7 +14,7 @@
     <tr *ngFor="let invoice of invoices; index as i">
       <th scope="row">{{ i + 1 }}</th>
       <td>{{ invoice.number }}</td>
-      <td>{{ invoice.date.day }}-{{ invoice.date.month }}-{{ invoice.date.year }}</td>
+      <td><app-date-formatter [date]="invoice.date"></app-date-formatter></td>
       <td>{{ invoice.positions.length || number}} </td>
       <td>-</td>
     </tr>
